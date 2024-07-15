@@ -4,9 +4,10 @@ Sitio web meteorológico informativo en Raspberry Pi sobre la temperatura y hume
 
 ## Empezar
 ```bash
-docker build -t my-raspbian .
-docker run -it --name my-raspbian-container my-raspbian
-docker start -i my-raspbian-container
+docker build -t myraspbian .
+docker run -dp 3000:3000 myapp
+docker run -it --name myraspbian-container myraspbian
+docker start -i myraspbian-container
 ```
 
 [GitHub / apuntes-docker](https://github.com/alexchristianqr/apuntes-docker)
