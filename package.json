@@ -1,0 +1,16 @@
+{
+  "name": "proyecto-final-raspberry-pi",
+  "version": "1.0.0",
+  "description": "Sitio web meteorológico informativo en Raspberry Pi sobre la temperatura y humedad con (DHT11)",
+  "main": "server.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "node server.js"
+  },
+  "keywords": [],
+  "author": "Alex Christian",
+  "license": "ISC",
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
