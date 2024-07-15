@@ -229,6 +229,8 @@ d3.csv(data_file_path, function (d) {
         humidity: +d.dht11_humidity
     };
 }).then(function (data) {
+    const datapy = document.getElementById('datapy');
+    datapy.innerHTML = JSON.stringify(data);
     createTemperatureGraph(data);
     createHumidityGraph(data);
 });

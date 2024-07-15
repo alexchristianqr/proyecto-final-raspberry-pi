@@ -6,16 +6,39 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>sitio web | Informativo</title>
+    
+    <script src="libs/jquery.min.js"></script>
+    <link href="libs/bootstrap-4.6.2/package/dist/css/bootstrap.css" rel="stylesheet" />
+    <script src="libs/bootstrap-4.6.2/package/dist/js/bootstrap.min.js"></script>
 
     <link rel="stylesheet" href="./styles.css">
     
     <script src="https://d3js.org/d3.v7.min.js"></script>
   </head>
   <body>
-    <div class="topnav">
-      <a class="active" href="#">Raspberry Pi Website</a>
+    <div class="topnav  shadow">
+      <a class="active" href="#">Estación web Meteorológica</a>
     </div>
-    <div id="charts" class="charts"></div>
+    <div class="container-fluid">
+      <div class="py-xl-5">
+      <div class="row">
+        <div class="col-6">
+          <div id="charts"></div>
+        </div>
+        <div class="col-6">
+          <div style="background-color: #282c34;
+            color: #ffffff;
+            padding: 20px;
+            border-radius: 8px;
+            overflow: auto;
+            max-width: 600px;
+            max-height: 200px;
+            margin: 0 auto;"><pre style="display: block; white-space: pre-wrap; word-wrap: break-word;color: #ffffff;"  id="datapy"></pre>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
   </body>
   <script src="./js/grid.js"></script>
   <script src="./js/index.js"></script>

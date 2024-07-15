@@ -13,7 +13,7 @@ raspberry_data = None
 temperature_correction = 1.0
 
 # Make sure the directory exist
-filename = "/var/www/html/data.csv"
+filename = "/app/src/db/data.csv"
 
 data_to_send = []
 

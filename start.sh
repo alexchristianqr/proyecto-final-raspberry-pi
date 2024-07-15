@@ -4,8 +4,8 @@
 echo "Ejecutando script de Raspberry Pi..."
 # Aquí puedes agregar las líneas de tu script
 
-# Llamar al script Python
-python3 ./src/dht11_raspberry.py
+# Llamar al script dht11_raspberry Python
+python3 src/script.py
 
 # Ejemplo de un bucle infinito para mantener el script corriendo
 while true; do
