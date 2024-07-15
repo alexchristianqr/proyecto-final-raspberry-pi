@@ -13,7 +13,7 @@ raspberry_data = None
 temperature_correction = 1.0
 
 # Make sure the directory exist
-filename = "/var/www/html/dht11_sensor_data.csv"
+filename = "/var/www/html/data.csv"
 
 data_to_send = []
 
