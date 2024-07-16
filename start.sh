@@ -1,10 +1,6 @@
 #!/bin/bash
 
-# Script de Raspberry Pi
-echo "Ejecutando script de Raspberry Pi..."
-# Aquí puedes agregar las líneas de tu script
-
-# Llamar al script dht11_raspberry Python
+# Script raspberry en Python
 python3 src/script.py
 
 # Ejemplo de un bucle infinito para mantener el script corriendo
