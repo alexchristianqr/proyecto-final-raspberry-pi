@@ -2,7 +2,7 @@ const data_file_path = "./db/data.csv";
 
 // axis fontsize
 const Y_LABEL_FONT_SIZE = "24px";
-const X_LABEL_FONT_SIZE = "12px";
+const X_LABEL_FONT_SIZE = "18px";
 
 // set the dimensions and margins of the graph
 var margin = { top: 20, right: 20, bottom: 30, left: 50 },
@@ -35,14 +35,14 @@ function getFormatedTime(date) {
  */
 function makeTooltip(data, x, y, svg, temperature = true) {
   // Circle size is size to
-  const circleSize = 1.5;
-  const circleHoverRadius = 6;
-  const circleSizeHover = 3;
+  const circleSize = 3;
+  const circleHoverRadius = 8;
+  const circleSizeHover = 8;
   const circleColor = "#FFFFFF";
 
   function getTooltipHTML(d) {
-    const temp_or_humi = temperature ? "<br> Temperature: " + d.temperature + "°" : "<br> Humidity: " + d.humidity + "%";
-    return getFormatedDate(d.date) + "<br/>" + getFormatedTime(d.date) + temp_or_humi;
+    const temp_or_humi = temperature ? "<br> Temperatura: " + d.temperature + "°" : "<br> Humedad: " + d.humidity + "%";
+    return getFormatedDate(d.date) + " / " + getFormatedTime(d.date) + temp_or_humi;
   }
 
   const circleShown = svg
@@ -73,15 +73,19 @@ function makeTooltip(data, x, y, svg, temperature = true) {
     .attr("cy", function (d) {
       return y(temperature ? d.temperature : d.humidity);
     })
+    .attr("viewBox", `0 0 960 500`)
     .style("opacity", 0)
     .on("mouseover", function (event, d) {
       circleShown.transition().duration("100").attr("r", circleSizeHover);
       //Makes div appear
-      div.transition().duration(200).style("opacity", 0.9);
+      div.transition().duration(200).style("opacity", 1);
       div
         .html(getTooltipHTML(d))
         .style("left", event.pageX + "px")
-        .style("top", event.pageY - 28 + "px");
+        .style("top", event.pageY - 28 + "px")
+        .style("font-size", "16px")
+        .style("width", "250px")
+        .style("padding", "2rem 0");
     })
     .on("mouseout", function (event, d) {
       circleShown.transition().duration("200").attr("r", circleSize);
@@ -193,12 +197,20 @@ function createSVG(id, title) {
   if (title) {
     _refCharts.append("h1").attr("class", "chart-h1").text(title);
   }
-  return _refCharts
+
+  const content = _refCharts.append("div").attr("id", "content-chart");
+
+  return content
     .append("svg")
     .attr("id", id)
     .attr("viewBox", `0 0 960 500`)
     .append("g")
     .attr("transform", "translate(" + margin.left + "," + margin.top + ")");
+}
+
+function addLogs(data) {
+  const div = document.getElementById("logs");
+  div.innerHTML = JSON.stringify(data);
 }
 
 function drawAxisAndGrid(xAxis, yAxis, svg, data) {
@@ -219,16 +231,11 @@ function drawAxisAndGrid(xAxis, yAxis, svg, data) {
 d3.csv(data_file_path, function (d) {
   return {
     date: new Date(d.date),
-    // diskUsage: +d.disk_usage,
-    // cpu: +d.cpu,
-    // memmory: +d.memory,
-    // cpuTemperature: +d.cpu_temperature,
     temperature: +d.dht11_temperature,
     humidity: +d.dht11_humidity
   };
 }).then(function (data) {
-  const datapy = document.getElementById("datapy");
-  datapy.innerHTML = JSON.stringify(data);
+  addLogs(data);
   createTemperatureGraph(data);
   createHumidityGraph(data);
 });

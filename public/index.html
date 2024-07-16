@@ -6,39 +6,64 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>sitio web | Informativo</title>
-    
+
     <script src="libs/jquery.min.js"></script>
     <link href="libs/bootstrap-4.6.2/css/bootstrap.css" rel="stylesheet" />
     <script src="libs/bootstrap-4.6.2/js/bootstrap.min.js"></script>
 
-    <link rel="stylesheet" href="./styles.css">
-    
+    <link rel="stylesheet" href="./styles.css" />
+
     <script src="https://d3js.org/d3.v7.min.js"></script>
   </head>
   <body>
-    <div class="topnav  shadow">
+    <!-- <div class="container"> -->
+    <!-- <nav class="navbar fixed-top navbar-expand-lg navbar-light bg-primary">
+        <a class="navbar-brand" href="#">Navbar</a>
+      </nav> -->
+
+    <!-- <nav class="navbar sticky-top navbar-expand-lg navbar-light bg-secondary py-xl-3">
+        <a class="navbar-brand text-white" href="#">Estación web Meteorológica</a>
+      </nav> -->
+
+    <nav class="navbar sticky-top navbar-light bg-light justify-content-between py-xl-3 shadow">
+      <a class="navbar-brand">Estación web Meteorológica</a>
+      <form class="form-inline">
+        <input class="form-control mr-sm-2" style="min-width: 500px" type="search" placeholder="Datos sobre temperatura o humedad" aria-label="Search" />
+        <button class="btn btn-primary my-2 my-sm-0" style="min-width: 150px" type="submit">Buscar</button>
+      </form>
+    </nav>
+    <!-- </div> -->
+    <!-- Image and text -->
+    <!-- <nav class="navbar navbar-light bg-light">
+  <a class="navbar-brand" href="#">
+    <img src="/docs/4.0/assets/brand/bootstrap-solid.svg" width="30" height="30" class="d-inline-block align-top" alt="">
+    Bootstrap
+  </a>
+</nav> -->
+
+    <!-- <div class="topnav  shadow">
       <a class="active" href="#">Estación web Meteorológica</a>
-    </div>
+    </div> -->
     <div class="container-fluid">
-      <div class="py-xl-5">
       <div class="row">
-        <div class="col-6">
-          <div id="charts"></div>
-        </div>
-        <div class="col-6">
-          <div style="background-color: #282c34;
-            color: #ffffff;
-            padding: 20px;
-            border-radius: 8px;
-            overflow: auto;
-            max-width: 600px;
-            max-height: 200px;
-            margin: 0 auto;"><pre style="display: block; white-space: pre-wrap; word-wrap: break-word;color: #ffffff;"  id="datapy"></pre>
+        <div class="col-8 offset-2">
+          <div class="py-xl-5">
+            <div class="row">
+              <div class="col-6 my-auto">
+                <div id="charts"></div>
+              </div>
+              <div class="col-6 my-auto">
+                <div style="background-color: #282c34; color: #ffffff; padding: 10px; overflow: auto; width: 100%; height: 75vh; margin: 0 auto">
+                  <pre style="display: inline; white-space: pre-wrap; color: #ffffff" id="logs"></pre>
+                </div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
-  </div>
+
+    <footer class="blockquote-footer" style="position: fixed; top: 50%">Desarrollado por <cite title="Source Title" style="font-weight: 700">Alex Christian</cite></footer>
   </body>
   <script src="./js/grid.js"></script>
   <script src="./js/index.js"></script>

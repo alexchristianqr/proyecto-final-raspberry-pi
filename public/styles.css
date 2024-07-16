@@ -90,21 +90,23 @@ hr {
   }
 
   /* CHART */
+  .content-chart {
+    padding-bottom: 1rem 0;
+    margin-bottom: 3rem;
+  }
+  
   .charts {
     display: flex;
     flex-direction: column;
-    padding: 3rem 0;
+    /* padding: 6rem 0; */
   }
 
   .chart {
-    margin: 0 5rem 3rem;
-    padding: 1.5rem;
+    margin-bottom: 1rem;
+    padding: 3rem;
 
     background-color: var(--beige);
     border-radius: 0.675rem;
-    -webkit-box-shadow: 0px 0px 21px -1px var(--beige); 
-    box-shadow: 0px 0px 21px -1px var(--beige);
-
   }
 
   @media screen and (max-width: 992px) {
