@@ -32,5 +32,5 @@ RUN npm install
 EXPOSE 3000
 
 # Comando para ejecutar el script de Raspberry Pi y el servidor Node.js
-# CMD ["sh", "-c", "./start.sh & exec node server.js"]                                                                                                                                                                                                                                                  
+# CMD ["sh", "-c", "./start.sh & exec node server.js"] # Comentado por falta del microcontrolador Raspberry py                                                                                                                                                                                                                                                
 CMD ["sh", "-c", "exec node server.js"]                                                                                                                                                                                                                                                  
