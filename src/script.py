@@ -1,7 +1,6 @@
 #!/usr/bin/python
 
 import Adafruit_DHT
-
 import datetime
 import os.path
 
@@ -35,8 +34,10 @@ if raspberry_data:
 
 # Humidity sensor : Options are DHT11,DHT22 or AM2302
 sensor = Adafruit_DHT.DHT11
+
 # connected to GPIO pin (4, 17).
 pin = 4
+
 # get data from sensor
 humidity, temperature = Adafruit_DHT.read_retry(sensor, pin)
 
@@ -67,11 +68,12 @@ if os.path.isfile(filename):
 else:
         # create header
         header = "date,dht11_temperature,dht11_humidity"
+        
         if raspberry_data:
                 header = "date,disk_usage,cpu,memory,cpu_temperature,dht11_temperature,dht11_humidity"
+                
         # create file and add header additional to data
         with open(filename, "w") as csv_file:
                 csv_file.write(header + "\n" + data_to_send_string + "\n")
-
 
 print("Finished " + datetime.datetime.now().strftime('%Y_%m_%d %H:%M:%S'))

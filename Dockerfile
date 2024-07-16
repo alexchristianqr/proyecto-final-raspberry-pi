@@ -26,7 +26,7 @@ COPY . /app
 RUN npm install
 
 # Asegurarse de que el script de Raspberry Pi sea ejecutable
-# RUN chmod +x ./start.sh
+# RUN chmod +x ./start.sh # Comentado por falta del microcontrolador Raspberry py
 
 # Exponer el puerto 3000
 EXPOSE 3000
